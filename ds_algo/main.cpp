@@ -6,8 +6,8 @@ using namespace std;
 
 int main() {
 
-    Graph graph{};
-    graph.setReprType(ADJENCY_MATRIX);
+    Graph graph{ADJENCY_LIST};
+    // graph.setReprType(ADJENCY_MATRIX);
     graph.printGraph();
 
 
