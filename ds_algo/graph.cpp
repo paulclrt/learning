@@ -22,7 +22,7 @@ void Graph::parseLine(std::string line, Edge* edge) {
 void Graph::addEdge(Edge edge) {
     if (this->repr == ADJENCY_LIST) {
         this->adjlist[edge.vertex1-1].push_back(edge.vertex2-1); // -1 because array = 0 indexed and file is 1 indexed;
-        // this->adjlist[edge.vertex2-1].push_back(edge.vertex1-1);
+        this->adjlist[edge.vertex2-1].push_back(edge.vertex1-1);
     } else if (this->repr == ADJENCY_MATRIX) {
         this->adjmatrix.at(edge.vertex1-1).at(edge.vertex2-1) = 1;
         this->adjmatrix.at(edge.vertex2-1).at(edge.vertex1-1) = 1;
