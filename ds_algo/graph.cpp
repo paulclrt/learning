@@ -6,6 +6,8 @@
 #include <cstring>
 #include <string>
 
+#include <queue>
+
 
 
 
@@ -87,6 +89,40 @@ void Graph::printGraph() {
             std::cout << "NULL" << std::endl;
         }
     }
+}
+
+
+void Graph::BFS_normal(int start_node) {
+    // start_node is 1 indexed base. 
+    std::queue<int> discovered;
+    std::vector<bool> visited(this->num_vertices, false);
+
+
+
+    if (this->repr == ADJENCY_LIST) {
+        std::cout << "BFS for adjency list" << std::endl;
+        discovered.push(start_node - 1);
+
+
+        std::cout << "Discovered nodes: " << std::endl;
+        while (discovered.empty() == false) {
+            // current node is 0 indexed. be careful. only start_node isn't
+            int current_node = discovered.front();
+            discovered.pop();
+            visited.at(current_node) = true;
+            for (int v : this->adjlist.at(current_node)) {
+                if (visited.at(v) == false) {
+                    visited.at(v) = true;
+                    discovered.push(v);
+                }
+            }
+            std::cout << current_node + 1 << " ";
+        }
+        std::cout << std::endl;
+        
+
+    }
+
 }
 
 

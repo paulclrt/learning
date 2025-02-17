@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <queue>
 
 typedef struct Edge {
     int vertex1;
@@ -31,6 +32,7 @@ class Graph {
 
         void printGraph();
         void setReprType(REPR_TYPE type);
+        void BFS_normal(int start_node);
 };
 
 
